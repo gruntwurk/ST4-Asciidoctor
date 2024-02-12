@@ -1,0 +1,392 @@
+// This is a SublimeText color scheme. It is intended to work for most
+// applications, but especially for markup files, and most especially for
+// AsciiDoc files, in particular.
+//
+// It utilizes the "Base16" architecture invented by Chris Kempson
+// (see https://github.com/chriskempson/base16) -- a standardized palette
+// of sixteen colors with suggested assignments for each slot (e.g. use
+// base0A for bold text, and use base08 for the background of error messages).
+// (Note that we are not limited to exactly those 16 colors. You'll see that
+// we do a lot of adjusting and blending below.)
+//
+// In the most basic form, as we are using here, the first eight palette slots
+// are a grey-scale from dark to light and the second eight are the primary
+// colors of the rainbow (Remember "ROY-G-BIV" from school?). It makes for a
+// usable, but uninteresting scheme. However, if you check out
+// https://github.com/chriskempson/base16#scheme-repositories you'll see a ton
+// of alternative schemes that designers have posted.
+//
+// For example, Dark Violet by ruler501 uses mostly colors from the blue/purple
+// end of the spectrum; and Equilibrium Gray Light by Carlo Abelli is a "light"
+// scheme with muted colors.
+//
+// Simply make a copy of this file and change the definitions of "base00" thru
+// "base0F" to match the color scheme of your choosing. (When you save the file,
+// change the "Base16" part of the name to the name of the selected scheme.)
+
+// TIP: When working on color schemes within SublimeText 4, it helps to install
+// the Color-Highlight package. It will, for example, colorize any color
+// constants such as #FF0 and #0000FF according to what color the constants are
+// (yellow and blue, respectively, in this case).
+
+{
+    "name": "AsciiDoc Base16",
+    "author": "polyglot-jones",
+    "variables":
+    {
+        // base00 thru base07 are (usually) a linear monochrome scale from
+        // darkest to brightest (for a "dark" scheme), or from brightest to
+        // darkest (for a "light" scheme).
+        // For this basic scheme, we're just using a plain gray-scale.
+        "base00" : "#000000" ,
+        "base01" : "#222222" ,
+        "base02" : "#444444" ,
+        "base03" : "#666666" ,
+        "base04" : "#888888" ,
+        "base05" : "#bbbbbb" ,
+        "base06" : "#dddddd" ,
+        "base07" : "#ffffff" ,
+        // base08 thru base0F are a set of eight coordinated colors chosen by
+        // the scheme designer.
+        // For this basic scheme, we're just using colors evenly spaced along
+        // the rainbow spectrum (good ole ROY-G-BIV: red, orange, yellow, green, blue, indigo, violet).
+        "base08" : "#FF0000" ,
+        "base09" : "#FFA500" ,
+        "base0A" : "#FFFF00" ,
+        "base0B" : "#00FF00" ,
+        "base0C" : "#0000FF" ,
+        "base0D" : "#800080" ,
+        "base0E" : "#FF00FF" ,
+        "base0F" : "#A52A2A" ,
+        // And now we take these baseline colors and assign them to various
+        // purposes. In many cases, it's a straight-forward assignment
+        // according to the fundamentals of the "Base16" architecture.
+        // In other cases, we alter the assigned color slightly to either
+        // emphasize or deemphasize the importance of that specific purpose.
+        "background_changed": "var(base02)",
+        "background_dark": "var(base01)",
+        "background_deleted": "color(var(base08) blend(#888 50%))",
+        "background_error": "color(var(base08) blend(#000 15%))",
+        "background_heading": "color(var(base02) blend(#000 60%)",
+        "background_special": "color(var(base0F) blend(#000 40%)",
+        "background_inserted": "color(var(base0B) blend(#888 50%))",
+        "background_invalid": "var(background_error)",
+        "background_light": "var(base07)",
+        "background_medium": "var(base04)",
+        "background_none": "var(base00)",
+        "background_parchment": "var(base06)",
+        "background_raw": "var(base05)",
+        "background_section_separator": "var(base02)",
+        "support": "var(base0D)",
+        "comment": "var(base03)",
+        "constant": "var(base09)",
+        "heading_1": "color(var(base09) blend(#FF0 50%))",
+        "heading_2": "color(var(base0B) blend(#FF0 50%))",
+        "heading_3": "color(var(base0C) blend(#FFF 50%))",
+        "heading_4": "color(var(base0D) blend(#FF0 50%))",
+        "heading_5": "color(var(base0E) blend(#FF0 50%))",
+        "source_keyword": "var(base0E)",
+        "bullet": "color(var(base09) blend(#888 50%))",
+        "section_separator": "color(var(base0B) blend(#888 50%))",
+        "selection_pointer": "var(base09)",
+        "source_code": "var(support)",
+        "source_variable": "var(base08)",
+        "string_constant": "var(base09)",
+        "string_variable": "var(base08)",
+        "text_bold": "color(var(base0A) blend(#000 75%))",
+        "text_italic": "color(var(base0E) blend(#000 75%))",
+        "text_escaped": "var(support)",
+        "text_invalid": "var(base0F)",
+        "text_plain": "var(base05)",
+        "text_special": "color(var(base0F) blend(#FFF 60%))",
+        "text_string": "color(var(base0B) blend(#FFF 50%))",
+        "text_string_single_quoted": "color(var(base0B) blend(#888 50%))"
+    },
+    "globals":
+    {
+        "foreground": "var(text_plain)",
+        "background": "var(base00)",
+        "caret": "var(base05)",
+        "invisibles": "color(var(base03) alpha(0.24))",
+        "line_highlight": "color(var(base07) alpha(0.1))",
+        "selection": "color(var(selection_pointer) alpha(0.4))",
+        // "selection_foreground": "var(text_plain)",
+        "inactive_selection": "color(var(selection_pointer) alpha(0.27))",
+        "find_highlight": "var(selection_pointer)"
+    },
+    "rules":
+    [
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "foreground": "var(comment)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Constant",
+            "scope": "constant",
+            "foreground": "var(constant)"
+        },        {
+            "name": "Constant Delimiter",
+            "scope": "constant.delimiter",
+            "foreground": "var(support)"
+        },
+        {
+            "name": "Entity",
+            "scope": "entity",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Keyword",
+            "scope": "keyword",
+            "foreground": "var(source_keyword)"
+        },
+        {
+            "name": "Storage",
+            "scope": "storage",
+            "foreground": "var(text_italic)"
+        },
+        {
+            "name": "Single Typographical Quote",
+            "scope": "markup.curlyquote.single",
+            "foreground": "var(text_string_single_quoted)"
+        },
+        {
+            "name": "Double Typographical Quote",
+            "scope": "markup.curlyquote.double",
+            "foreground": "var(text_string)"
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "var(text_string)"
+        },
+        {
+            "name": "Support",
+            "scope": "support",
+            "foreground": "var(support)"
+        },
+        {
+            "name": "Anchors",
+            "scope": "markup.anchor",
+            "foreground": "var(support)"
+        },
+        {
+            "name": "Xref Link",
+            "scope": "variable.parameter.xref",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Xref Display",
+            "scope": "variable.parameter.xref.display",
+            "foreground": "var(text_plain)"
+        },
+        {
+            "name": "Index Term",
+            "scope": "variable.other.indexterm",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Variable",
+            "scope": "variable",
+            "foreground": "var(source_variable)"
+        },
+        {
+            "name": "Invalid \u2013 Deprecated",
+            "scope": "invalid.deprecated",
+            "foreground": "var(text_invalid)",
+            "font_style": "italic underline"
+        },
+        {
+            "name": "Invalid \u2013 Illegal",
+            "scope": "invalid.illegal",
+            "foreground": "var(text_invalid)",
+            "background": "color(var(background_invalid) alpha(0.75))"
+        },
+        {
+            "name": "\u2666 Embedded Source (Bright)",
+            "scope": "text source, meta.embedded source",
+            "foreground": "var(source_code)"
+        },
+        {
+            "name": "\u2666 Entity inherited-class",
+            "scope": "entity.other.inherited-class",
+            "foreground": "color(var(base09) saturation(- 80%))",
+            "font_style": "italic"
+        },
+        {
+            "name": "\u2666 String embedded-source",
+            "scope": "string.quoted source",
+            "foreground": "color(var(base0A) saturation(- 40%))"
+        },
+        {
+            "name": "\u2666 String constant",
+            "scope": "string constant",
+            "foreground": "var(string_constant)"
+        },
+        {
+            "name": "\u2666 String.regexp",
+            "scope": "string.regexp",
+            "foreground": "var(text_italic)"
+        },
+        {
+            "name": "\u2666 String.regexp.\u00abspecial\u00bb",
+            "scope": "string.regexp constant.character.escape, string.regexp source.ruby.embedded, string.regexp string.regexp.arbitrary-repitition",
+            "foreground": "var(text_escaped)"
+        },
+        {
+            "name": "\u2666 String variable",
+            "scope": "string variable",
+            "foreground": "var(string_variable)"
+        },
+        {
+            "name": "\u2666 Support.function",
+            "scope": "support.function",
+            "foreground": "color(var(base0A) saturation(- 30%))"
+        },
+        {
+            "name": "\u2666 Support.constant",
+            "scope": "support.constant",
+            "foreground": "color(var(base08) saturation(- 40%))"
+        },
+        {
+            "name": "Meta BlockID",
+            "scope": "punctuation.definition.blockid",
+            "foreground": "var(support)"
+        },
+        {
+            "name": "\u2718 Meta.tag.\u00aball\u00bb",
+            "scope": "meta.tag, meta.tag entity",
+            "foreground": "color(var(base0A) saturation(- 20%))"
+        },
+        {
+            "name": "\u2718 Meta.tag.inline",
+            "scope": "source entity.name.tag, source entity.other.attribute-name, meta.tag.inline, meta.tag.inline entity",
+            "foreground": "color(var(base09) saturation(- 20%))"
+        },
+        {
+            "name": "\u2718 Namespaces",
+            "scope": "entity.name.tag.namespace, entity.other.attribute-name.namespace",
+            "foreground": "color(var(base08) saturation(- 20%))"
+        },
+        {
+            "name": "\u2387 diff.header",
+            "scope": "meta.diff, meta.diff.header",
+            "foreground": "var(text_plain)",
+            "background": "var(background_dark)",
+            "font_style": "italic"
+        },
+        {
+            "name": "\u2387 diff.deleted",
+            "scope": "markup.deleted",
+            "foreground": "var(text_plain)",
+            "background": "var(background_deleted)"
+        },
+        {
+            "name": "\u2387 diff.changed",
+            "scope": "markup.changed",
+            "foreground": "var(text_plain)",
+            "background": "var(background_changed)"
+        },
+        {
+            "name": "\u2387 diff.inserted",
+            "scope": "markup.inserted",
+            "foreground": "var(text_plain)",
+            "background": "var(background_inserted)"
+        },
+        {
+            "name": "Markup: Italic",
+            "scope": "markup.italic",
+            "foreground": "var(text_italic)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Markup: Bold",
+            "scope": "markup.bold",
+            "foreground": "var(text_bold)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markup: Underline",
+            "scope": "markup.underline",
+            "foreground": "var(text_italic)",
+            "font_style": "underline"
+        },
+        {
+            "name": "Markup: Quote",
+            "scope": "markup.quote",
+            "foreground": "var(text_italic)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Markup: Monospaced",
+            "scope": "string.other.literal",
+            "foreground": "var(constant)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Markup: Heading 2",
+            "scope": "markup.heading.level.2, markup.heading.level.2 entity",
+            "foreground": "var(heading_2)",
+            "background": "var(background_heading)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Markup: Heading 3",
+            "scope": "markup.heading.level.3, markup.heading.level.3 entity",
+            "foreground": "var(heading_3)",
+            "background": "var(background_heading)"
+        },
+        {
+            "name": "Markup: Heading 4",
+            "scope": "markup.heading.level.4, markup.heading.level.4 entity",
+            "foreground": "var(heading_4)",
+            "background": "var(background_heading)"
+        },
+        {
+            "name": "Markup: Heading 5",
+            "scope": "markup.heading.level.5, markup.heading.level.5 entity",
+            "foreground": "var(heading_5)",
+            "background": "var(background_heading)"
+        },
+        {
+            "name": "Markup: Heading",
+            "scope": "markup.heading, markup.heading entity",
+            "foreground": "var(heading_1)",
+            "background": "var(background_heading)"
+        },
+        {
+            "name": "Markup: Title",
+            "scope": "markup.heading.level.0, markup.heading.level.0 entity",
+            "foreground": "var(text_special)",
+            "background": "var(background_special)"
+        },
+        {
+            "name": "Markup: List",
+            "scope": "markup.list, punctuation.definition.list",
+            "foreground": "var(bullet)"
+        },
+        {
+            "name": "Markup: Raw",
+            "scope": "markup.raw",
+            "foreground": "var(text_plain)",
+            "background": "color(var(background_raw) alpha(0.031))"
+        },
+        {
+            "name": "Markup: Separator",
+            "scope": "meta.separator",
+            "foreground": "var(section_separator)",
+            "background": "var(background_section_separator)"
+        },
+        {
+            "name": "Log Entry",
+            "scope": "meta.line.entry.logfile, meta.line.exit.logfile",
+            "background": "color(var(background_parchment) alpha(0.16))"
+        },
+        {
+            "name": "Log Entry Error",
+            "scope": "meta.line.error.logfile",
+            "background": "var(background_error)"
+        }
+    ]
+}

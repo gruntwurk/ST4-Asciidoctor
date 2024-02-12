@@ -1,32 +1,45 @@
 = Color Schemes
 
-SublimeText ships with five default colors schemes: "`Breakers,`" "`Celeste,`" "`Mariana,`" "`Monokai,`" and "`Sixteen.`"
-They all only have minimal support for colorizing markup files.
-That is, none of them are nuanced in the particulars imparted by our AsciiDoc syntax specification.
+This package ships with a variety of AsciiDoc-Specific Color Schemes:
 
-This package, therefore, ships with a dedicated color scheme ("`AsciiDoc Dark`") which takes full advantage of this package's AsciiDoc syntax specification.
-For example, the "`Molokai`", "`Breakers`", and "`Celeste`" color schemes that ship with ST4 do not bother to highlight the list bullets, nor the fences around tables, nor any of the markers that start and end various blocks (examples, sidebar, etc.).
-This "`AsciiDoc Dark`" scheme does.
-It is associated with AsciiDoc files by default (according to the _color_scheme_ setting in our `Asciidoctor.sublime-settings` file).
+* *AsciiDoc ROYGBIV Dark* -- A basic, colorful scheme (default)
+* *AsciiDoc ROYGBIV Light* -- The "light" flip side to ROYGBIV Dark (needs work)
+* *AsciiDoc DodgerBlue Dark* -- A scheme centered on the Dodger Blue color
+* *AsciiDoc Sunburst Dark* -- A scheme featuring oranges and golds, with subdued violets and blues for accents
+* *AsciiDoc Equilibrium Gray Light*
+* *AsciiDoc DarkViolet*
+
+All of them take full advantage of this package's AsciiDoc syntax specification, unlike the color schemes that ship with ST4.
+These "`AsciiDoc...`" schemes, for example, know how to highlight list bullets, the fences around tables, the markers that start and end various blocks (examples, sidebar, etc.), and more.
+
+`AsciiDoc ROYGBIV Dark` is the default scheme that we have associated with AsciiDoc files by default (according to the _color_scheme_ setting in our `Asciidoctor.sublime-settings` file).
+As the ROYGBIV name implies, it's a basic scheme using all of the colors of the rainbow: red, orange, yellow, green, blue, indigo, and violet.
 
 
 == Choosing a Different AsciiDoc-Specific Color Scheme
 
-If you don't like the "`AsciiDoc Dark`" scheme, you can easily override it and pick a different color scheme to associate with AsciiDoc files.
-(In the future, we may provide alternative schemes tailored to AsciiDoc, or you can roll your own.)
+If you don't like the "`AsciiDoc ROYGBIV Dark`" scheme, you can easily override it and pick a different color scheme to associate with AsciiDoc files.
 
 . Open an AsciiDoc file for editing (i.e. any file with an `.asciidoc` or `.adoc` extension).
 . Pull down the `Preferences` menu and choose `Settings - Syntax Specific` (while the tab with the AsciiDoc file has focus).
 . SublimeText will open in another window and show a split screen view. On the left is a tab labeled `Preferences.sublime-settings`, while the one on the right is labeled `Asciidoctor.sublime-settings`. The left pane is read-only. The right pane is editable.
 . The contents of the right pane may or may not be empty to start. This represents your user-specific override settings for AsciiDoc files.
-. Find the "color_scheme" setting on the left and click the pencil icon next to it. This will copy that "color_scheme" setting to the right. (Don't be confused if it doesn't say `AsciiDoc Dark.sublime-color-scheme`. It will likely show you the main default color scheme, which is `Mariana.sublime-color-scheme`.)
-. Edit the "color_scheme" setting on the right to specify a color scheme of your liking (i.e. change `Mariana.sublime-color-scheme` to `My-Favorite-Scheme.sublime-color-scheme`.
+. Find the "color_scheme" setting on the left and click the pencil icon next to it. This will copy that "color_scheme" setting to the right. (Don't be confused if it doesn't say `AsciiDoc ROYGBIV Dark.sublime-color-scheme`. It will likely show you the main default color scheme, which is `Mariana.sublime-color-scheme`.)
+. Edit the "color_scheme" setting on the right to specify a color scheme of your liking (e.g. change `Mariana.sublime-color-scheme` to `AsciiDoc Sunburst Dark.sublime-color-scheme`.
 
-CAUTION: Do not specify any folder names. Just give the name of the scheme file alone (`My-Favorite-Scheme.sublime-color-scheme`). SublimeText will find it automatically, wherever it resides.
+CAUTION: Do not specify any folder names. Just give the name of the scheme file alone (`AsciiDoc DodgerBlue Dark.sublime-color-scheme`). SublimeText will find it automatically, wherever it resides.
 
 When you save your changes, it will create (or update) a file called `Asciidoctor.sublime-settings` in your `User` package. FYI, you can open that file directly at any time by pulling down `Preferences` -> `Package Settings` -> `Asciidoctor` -> `Settings - User`.
 
 NOTE: Setting an AsciiDoc-specific color scheme is distinctly different than pulling down the `Preferences` menu and choosing `Select Color Scheme...`. That sets the default color scheme that is used for plain text files (and any other file types that don't have a specific color scheme associated with them). The `Select Color Scheme...` command is simply a shortcut for editing the _color_scheme_ setting in the `Preferences.sublime-settings` file in your `User` package.
+
+
+== Rolling Your Own Color Scheme
+
+If you want to come up with your own color scheme, we suggest you start with a copy of either `AsciiDoc ROYGBIV Dark.sublime-color-scheme` or `AsciiDoc ROYGBIV Light.sublime-color-scheme`.
+Simply follow the directions contained in the comments within.
+You'll see that they are based on a standard called "`Base16`" invented by Chris Kempson.
+See https://github.com/chriskempson/base16[]
 
 
 == A Note for Contributors

@@ -5,7 +5,7 @@
   // then hangs with an OS Error (instead of just skipping that location and
   // searching on).
 
-  "color_scheme": "AsciiDoc Dark.sublime-color-scheme",
+  "color_scheme": "AsciiDoc ROYGBIV Dark.sublime-color-scheme",
 
   "indent_lists": true,
 
